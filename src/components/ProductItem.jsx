@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 
-const ProductItem = ({ product, cart, setCart }) => {
+const ProductItem = ({ product }) => {
+const {cart, setCart} = useContext(CartContext);
   const findProduct = cart.find((item) => item.id === product.id);
   const addToCart = (product) => {
     setCart((prevState) => [...prevState, product]);
